@@ -8,6 +8,13 @@ data "oci_identity_availability_domains" "ad" {
   compartment_id = var.compartment_ocid
 }
 
+data "oci_identity_fault_domains" "fd" {
+  for_each = { for ad in data.oci_identity_availability_domains.ad.availability_domains :
+               ad.name => ad }
+  availability_domain = each.value.name
+  compartment_id      = var.compartment_ocid
+}
+
 data "oci_core_volume_backup_policies" "default_backup_policies" {}
 
 locals {

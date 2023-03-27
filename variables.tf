@@ -43,12 +43,12 @@ variable "ad_number" {
   default     = null
 }
 
-# variable "fd_number" {
-#   // for future use, adding fault domain support
-#   description = "(Updatable) The fault domain of the instance."
-#   type        = number
-#   default     = null
-# }
+variable "fd_number" {
+  // for future use, adding fault domain support
+  description = "(Updatable) The fault domain of the instance."
+  type        = number
+  default     = null
+}
 
 variable "instance_count" {
   description = "Number of identical instances to launch from a single module."

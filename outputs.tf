@@ -75,3 +75,8 @@ output "volume_attachment_all_attributes" {
   description = "all attributes of created volumes attachments"
   value       = { for k, v in oci_core_volume_attachment.volume_attachment : k => v }
 }
+
+output "fault_domains" {
+  value = { for ad in data.oci_identity_fault_domains.fd :
+            ad.value.name => ad.value.fault_domains }
+}
