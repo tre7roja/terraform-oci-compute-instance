@@ -78,5 +78,5 @@ output "volume_attachment_all_attributes" {
 
 output "fault_domains" {
   value = { for ad in data.oci_identity_fault_domains.fd :
-            ad.value.name => ad.value.fault_domains }
+            ad.name => ad.value.fault_domains }
 }
